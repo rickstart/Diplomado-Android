@@ -33,7 +33,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				intent = new Intent(getApplicationContext(),SecondActivity.class);
-				intent.putExtra("name", "Ricardo");
+				intent.putExtra("name", "ALEJANDRO");
+				intent.putExtra("telefono", "551234569");
 				startActivity(intent);
 				
 			}
@@ -43,7 +44,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				intent = new Intent(Intent.ACTION_CALL,
+				intent = new Intent(Intent.ACTION_DIAL,
 				          Uri.parse("tel:(+49)12345789"));
 				      startActivity(intent);
 			}
@@ -53,7 +54,8 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				intent = new Intent("android.media.action.IMAGE_CAPTURE");
+				intent = new Intent("android.intent.category.LAUNCHER");
+				intent.setClassName("com.facebook.katana", "com.facebook.katana.LoginActivity");
 				startActivity(intent);
 				
 			}
@@ -64,7 +66,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				 intent = new Intent(Intent.ACTION_VIEW,
-				          Uri.parse("http://www.google.com"));
+				          Uri.parse("http://www.facebook.com"));
 				 startActivity(intent);
 				
 			}

@@ -11,17 +11,18 @@ import com.rickstart.intentsamples.R;
 public class SecondActivity extends Activity {
 	
 	TextView tv_name;
-	
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_second);
-		Intent i = getIntent();
-		String name = i.getExtras().getString("name");
 		tv_name = (TextView) findViewById(R.id.tv_name);
-		tv_name.setText(name);
+		Intent i = getIntent();
+		Bundle b = i.getExtras();
+		String name = b.getString("name");
+		String phone = b.getString("telefono");
+		
+		tv_name.setText(name+" "+phone);
 	}
 
 	@Override
