@@ -16,45 +16,20 @@ public class MainActivity extends Activity {
 		    setContentView(R.layout.activity_main);
 
 		    listview = (ListView) findViewById(R.id.lv_contacts);
-		    String[] values = new String[] { "Irving", "Jose", "Alex",
-		        "Marco", "Antonio", "Ricardo" };
-		    String[] phones = new String[] { "55555", "55555", "55555",
-			        "2222", "2222", "22222" };
+		    Contact irving = new Contact("Irving","irv@gmail.com","552423255242","irving","@irev");
+		    Contact antonio = new Contact("Antonio","irv@gmail.com","552423255242","irv","@irev");
+		    Contact jose = new Contact("Jose","irv@gmail.com","552423255242","irv","@irev");
+		    Contact alex = new Contact("Alex","irv@gmail.com","552423255242","irv","@irev");
+		    Contact marco = new Contact("Marco","irv@gmail.com","552423255242","irv","@irev");
+		    Contact ricardo = new Contact("Ricardo Centeno","ricardo.celj@gmail.com","5514382887","ricardo.centeno.lugo","@rickstart");
+		    Contact[] contacts = new Contact[]{irving, antonio, jose, alex, marco, ricardo};
+		    
 
-		    MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this, values,phones);
+		    MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this, contacts);
 		
 		    listview.setAdapter(adapter);
 		    
-		    
-		    
-		    
-//			final ArrayList<String> list = new ArrayList<String>();
-//		    for (int i = 0; i < values.length; ++i) {
-//		      list.add(values[i]);
-//		    }
-//		    final StableArrayAdapter adapter = new StableArrayAdapter(this,
-//		        android.R.layout.simple_list_item_1, list);
-		   
 
-//		    listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//		      @SuppressLint("NewApi")
-//			@Override
-//		      public void onItemClick(AdapterView<?> parent, final View view,
-//		          int position, long id) {
-//		        final String item = (String) parent.getItemAtPosition(position);
-//		        view.animate().setDuration(2000).alpha(0)
-//		            .withEndAction(new Runnable() {
-//		              @Override
-//		              public void run() {
-//		                list.remove(item);
-//		                adapter.notifyDataSetChanged();
-//		                view.setAlpha(1);
-//		              }
-//		            });
-//		      }
-//
-//		    });
 		  }
 
 
