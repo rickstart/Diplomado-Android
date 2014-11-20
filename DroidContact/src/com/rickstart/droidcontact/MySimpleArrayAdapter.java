@@ -42,6 +42,7 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Contact> {
 	    ImageButton sms = (ImageButton) rowView.findViewById(R.id.sms);
 	    ImageButton email = (ImageButton) rowView.findViewById(R.id.email);
 	    ImageButton face = (ImageButton) rowView.findViewById(R.id.face);
+	    ImageButton twitter = (ImageButton) rowView.findViewById(R.id.twitter);
 	    
 	   	textView.setText(contacts[position].getName());
 	   
@@ -49,12 +50,19 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Contact> {
 	  
 	    phone.setOnClickListener(new OnClickListener() {
 			
-			@Override
+	    		@Override
 			public void onClick(View arg0) {
-				intent = new Intent(Intent.ACTION_DIAL);
-			    intent.setData(Uri.parse("tel:"+contacts[position].getPhone()));
+				
+			   try {
+			    		intent = new Intent(Intent.ACTION_DIAL);
+				    intent.setData(Uri.parse("tel:"+contacts[position].getPhone()));
+				    context.startActivity(intent);
 
-			    context.startActivity(intent);
+			   } catch (Exception e) {
+			        Toast.makeText(context, "Phone not Installed", Toast.LENGTH_SHORT)
+			                .show();
+			   }  
+				
 			}
 		});
 	    
@@ -103,27 +111,27 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Contact> {
 			}
 		});
 	    	
-	       	email.setOnClickListener(new OnClickListener() {
+	    email.setOnClickListener(new OnClickListener() {
 				
-				@Override
-				public void onClick(View arg0) {
+	    		@Override
+			public void onClick(View arg0) {
 
-				    try {
-				    	Intent intent = new Intent(Intent.ACTION_SEND);
-				    	intent.setType("text/plain");
-				    	intent.putExtra(Intent.EXTRA_EMAIL, contacts[position].getEmail());
-				    	intent.putExtra(Intent.EXTRA_SUBJECT, "Greetings");
-				    	intent.putExtra(Intent.EXTRA_TEXT, "Hey dude what's up");
+			try {
+			  	Intent intent = new Intent(Intent.ACTION_SEND);
+			   	intent.setType("text/plain");
+			    	intent.putExtra(Intent.EXTRA_EMAIL, contacts[position].getEmail());
+			    	intent.putExtra(Intent.EXTRA_SUBJECT, "Greetings");
+			    	intent.putExtra(Intent.EXTRA_TEXT, "Hey dude what's up");
 
-				    	context.startActivity(Intent.createChooser(intent, "Send Email"));
+				context.startActivity(Intent.createChooser(intent, "Send Email"));
 
-				   } catch (Exception e) {
-				        Toast.makeText(context, "Email not Installed", Toast.LENGTH_SHORT)
-				                .show();
-				   }  
+				} catch (Exception e) {
+					Toast.makeText(context, "Email not Installed", Toast.LENGTH_SHORT)
+				         .show();
+				}  
 					
-				}
-			});
+	    		}
+		});
 	       	
 	    	face.setOnClickListener(new OnClickListener() {
 				
@@ -135,7 +143,23 @@ public class MySimpleArrayAdapter extends ArrayAdapter<Contact> {
 					context.startActivity(intent);
 	
 					 } catch (Exception e) {
-						 Toast.makeText(context, "Email not Installed", Toast.LENGTH_SHORT)
+						 Toast.makeText(context, "Browser not Installed", Toast.LENGTH_SHORT)
+						                .show();
+					 }  
+							
+			}
+	    	});
+	    	twitter.setOnClickListener(new OnClickListener() {
+				
+			@Override
+			public void onClick(View arg0) {
+				try {
+					intent = new Intent(Intent.ACTION_VIEW,
+								Uri.parse("http://www.twitter.com/"+contacts[position].getTwitter()));
+					context.startActivity(intent);
+	
+					 } catch (Exception e) {
+						 Toast.makeText(context, "Browser not Installed", Toast.LENGTH_SHORT)
 						                .show();
 					 }  
 							

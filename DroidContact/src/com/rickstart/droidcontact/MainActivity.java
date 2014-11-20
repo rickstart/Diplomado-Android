@@ -16,12 +16,12 @@ public class MainActivity extends Activity {
 		    setContentView(R.layout.activity_main);
 
 		    listview = (ListView) findViewById(R.id.lv_contacts);
-		    Contact irving = new Contact("Irving","irv@gmail.com","552423255242","irving","@irev");
-		    Contact antonio = new Contact("Antonio","irv@gmail.com","552423255242","irv","@irev");
-		    Contact jose = new Contact("Jose","irv@gmail.com","552423255242","irv","@irev");
-		    Contact alex = new Contact("Alex","irv@gmail.com","552423255242","irv","@irev");
-		    Contact marco = new Contact("Marco","irv@gmail.com","552423255242","irv","@irev");
-		    Contact ricardo = new Contact("Ricardo Centeno","ricardo.celj@gmail.com","5514382887","ricardo.centeno.lugo","@rickstart");
+		    Contact irving = new Contact("Irving Luna","irving.abigor@gmail.com","5547821968","Yussel.Luna","Yussel3");
+		    Contact antonio = new Contact("Antonio Zavala","xureex@gmail.com","5530318241","xureex","@xure_ex");
+		    Contact jose = new Contact("Jose Alvizuri","alvizurigarcia@gmail.com","5530585932","alvi.alvizuri","unknow");
+		    Contact alex = new Contact("Alex","irv@gmail.com","552423255242","irv","irev");
+		    Contact marco = new Contact("Marco","irv@gmail.com","552423255242","irv","irev");
+		    Contact ricardo = new Contact("Ricardo Centeno","ricardo.celj@gmail.com","5514382887","ricardo.centeno.lugo","rickstart");
 		    Contact[] contacts = new Contact[]{irving, antonio, jose, alex, marco, ricardo};
 		    
 
